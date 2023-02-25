@@ -1,3 +1,5 @@
+## fork of the original work. Image rotate option (because my sensor is rotated the other way)
+
 # Betzuka laser level
 
 Java app to use a USB webcam to resolve the location of a laser line to a few microns (depending on how the webcam sensor is fixed and its pixel pitch). Works best if the camera is used without optics and the laser line is formed with a cylindrical lens 
