@@ -1,4 +1,5 @@
-## fork of the original work. Image rotate option (because my sensor is rotated the other way)
+### Fork of the original work. 
+Image rotate option (because my sensor is rotated the other way)
 
 # Betzuka laser level
 
