@@ -59,8 +59,27 @@ public class FrameAnalyzer {
 	public AnalyzedFrame analyzeNextFrame() {
 		//read frame from camera
 		BufferedImage img = cam.nextFrame();
-		
+
+		if (img != null && settings.isFlipImage()){
+			// Create a new image with the same dimensions as the original image
+			BufferedImage rotatedImage = new BufferedImage(img.getWidth(), img.getHeight(), img.getType());
+
+			// Iterate through the pixels of the original image in reverse order
+			for (int y = img.getHeight() - 1; y >= 0; y--) {
+				for (int x = img.getWidth() - 1; x >= 0; x--) {
+					// Get the pixel data from the original image
+					int pixel = img.getRGB(x, y);
+					
+					// Set the corresponding pixel in the new image
+					rotatedImage.setRGB(img.getWidth() - x - 1, img.getHeight() - y - 1, pixel);
+				}
+			}
+			img = rotatedImage;
+		}
+
 		byte [] pixels = ((DataBufferByte) img.getRaster().getDataBuffer()).getData();
+
+
 		double [] intensityCurve = calcCurve(img.getHeight(), img.getWidth() , pixels, settings.getSmoothingFactor(), settings.isInvertGreyscale());
 		
 		double maxima = findMaxima(intensityCurve);

@@ -2,12 +2,21 @@ package betzuka.tools.laserlevel;
 
 public class Settings {
 	
+	private boolean flipImage;
 	private boolean invertGreyscale;
 	private double umPerPixel = 1;
 	private int smoothingFactor = 20;
 	private int samplesToAverage = 10;
 	private int model = 4;
 	
+	public boolean isFlipImage() {
+		return flipImage;
+	}
+
+	public void setFlipImage(boolean flipImage) {
+		this.flipImage = flipImage;
+	}
+
 	public boolean isInvertGreyscale() {
 		return invertGreyscale;
 	}
